@@ -1,4 +1,5 @@
 # Dual-Fonter
+
 ![Dual-Fonter Demo](https://github.com/domz-1/dual-fonter/blob/main/public/dual-fonter.png)
 
 A lightweight, CSS-only library for handling dual-script fonts (Arabic and Latin) with easy variable customization.
