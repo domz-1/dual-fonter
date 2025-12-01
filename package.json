@@ -1,0 +1,68 @@
+{
+  "name": "dual-fonter",
+  "version": "1.1.0",
+  "description": "A CSS-only library for handling dual-script fonts (Arabic and Latin) with variable support.",
+  "main": "src/css/dual-fonter.css",
+  "style": "src/css/dual-fonter.css",
+  "exports": {
+    ".": "./src/css/dual-fonter.css",
+    "./css": "./src/css/dual-fonter.css"
+  },
+  "files": [
+    "src/css/",
+    "src/fonts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "lint:css": "stylelint 'src/**/*.css' 'examples/**/*.css'",
+    "lint:css:fix": "stylelint 'src/**/*.css' 'examples/**/*.css' --fix",
+    "format": "prettier --write '**/*.{css,html,json,md}'",
+    "format:check": "prettier --check '**/*.{css,html,json,md}'",
+    "validate": "npm run format:check && npm run lint:css",
+    "clean": "rm -rf dist/ coverage/ *.tgz",
+    "serve:example": "npx serve examples/css-only -p 3000",
+    "dev": "npm run serve:example",
+    "prepublishOnly": "npm run validate",
+    "version": "npm run validate && git add -A",
+    "postversion": "git push && git push --tags",
+    "pack:dry": "npm pack --dry-run"
+  },
+  "keywords": [
+    "fonts",
+    "arabic",
+    "latin",
+    "typography",
+    "css",
+    "css-only",
+    "dual-font",
+    "dual-script",
+    "rtl",
+    "ltr",
+    "web-font",
+    "font-stack",
+    "multilingual",
+    "i18n",
+    "internationalization",
+    "bidirectional",
+    "bidi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/dual-fonter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/dual-fonter/issues"
+  },
+  "homepage": "https://github.com/yourusername/dual-fonter#readme",
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^3.1.0",
+    "serve": "^14.2.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}

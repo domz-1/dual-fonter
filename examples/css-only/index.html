@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS-Only Dual-Font Demo</title>
+
+    <!-- Import fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Import Cairo and Roboto for override demo -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Import Noto Color Emoji for emoji demo -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Import Noto Emoji (Monochrome) for distinct override demo -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Import Dual-Fonter CSS -->
+    <link rel="stylesheet" href="../../src/css/dual-fonter.css" />
+
+    <style>
+      /* Override variables globally */
+      :root {
+        --arabic-font: 'IBM Plex Sans Arabic';
+        --latin-font: 'Poppins';
+        /* Apple Color Emoji is default in the library, no need to override unless changing it */
+      }
+
+      /* Apply to all elements as requested */
+      * {
+        font-family: var(--dual-font);
+      }
+
+      body {
+        padding: 40px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .demo-box {
+        margin-bottom: 30px;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+      }
+
+      code {
+        background: #eee;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 data-dual-font>Dual-Font CSS Library Demo</h1>
+
+      <div class="demo-box">
+        <h2>Standard Usage</h2>
+        <p>
+          This text uses the dual font stack (Poppins + IBM Plex Sans Arabic). مرحبا بكم في مكتبة
+          الخطوط المزدوجة. English and Arabic should look harmonious.
+        </p>
+      </div>
+
+      <div class="demo-box">
+        <h2 class="df-ar">Force Arabic Font (.df-ar)</h2>
+        <p class="df-ar">
+          هذا النص يستخدم خط IBM Plex Sans Arabic فقط. Even English text here will use the Arabic
+          font if it has Latin glyphs (which it does).
+        </p>
+      </div>
+
+      <div class="demo-box">
+        <h2 class="df-en">Force Latin Font (.df-en)</h2>
+        <p class="df-en">
+          This text uses Poppins only. النص العربي هنا سيظهر بخط النظام الافتراضي أو المربع إذا لم
+          يدعمه الخط.
+        </p>
+      </div>
+
+      <div class="demo-box">
+        <h2 style="--latin-font: 'Courier New'; --arabic-font: 'Tahoma'">Variable Override</h2>
+        <p style="--latin-font: 'Courier New'; --arabic-font: 'Tahoma'">
+          Overridden fonts: Courier New for English, Tahoma for Arabic. مرحبا بكم.
+        </p>
+      </div>
+
+      <div class="demo-box">
+        <h2>Emoji Support</h2>
+        <p>Standard Emojis (Apple Color Emoji): 😀 🎉 🚀 🌍</p>
+        <p class="df-em" style="--emoji-font: 'Noto Color Emoji', sans-serif">
+          Overridden Emojis (Noto Color Emoji): 😀 🎉 🚀 🌍
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

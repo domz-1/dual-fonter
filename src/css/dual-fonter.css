@@ -1,0 +1,43 @@
+/* ============================================
+   DUAL-FONT CSS LIBRARY
+   ============================================ */
+
+:root {
+  /* Default Fonts */
+  --latin-font: 'Poppins';
+  --arabic-font: 'IBM Plex Sans Arabic';
+  --emoji-font: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Dual Font Stack: Latin first, then Arabic fallback, then Emoji */
+  /* Note: This relies on the Latin font NOT containing Arabic glyphs */
+  --dual-font: var(--latin-font), var(--arabic-font), var(--emoji-font);
+}
+
+/* 
+   Utility Classes 
+*/
+
+/* Force Arabic Font */
+.df-ar {
+  font-family: var(--arabic-font), sans-serif !important;
+}
+
+/* Force Latin Font */
+.df-en {
+  font-family: var(--latin-font), sans-serif !important;
+}
+
+/* Force Emoji Font */
+.df-em {
+  font-family: var(--emoji-font) !important;
+}
+
+/* Apply Dual Font Stack */
+[data-dual-font] {
+  font-family: var(--dual-font);
+}
+
+/* Helper class for body or container */
+.df-container {
+  font-family: var(--dual-font);
+}
